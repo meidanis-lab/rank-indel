@@ -1,0 +1,37 @@
+family,genus,species,strain,annotation,assembly,level,#replicons,group
+enterobacteriaceae,escherichia,fergusonii,ATCC 35469T,E_ferg_ATCC35469T,GCF_000026225.1,complete,2,outgroup
+enterobacteriaceae,escherichia,coli,S88,E_coli_S88,GCF_000026285.1,complete,2,B2
+enterobacteriaceae,escherichia,coli,K-12 substr. W3110,E_coli_K12W3110,GCF_000010245.2,complete,1,A
+enterobacteriaceae,escherichia,coli,IAI39,E_coli_IAI39,GCF_000026345.1,complete,1,D
+enterobacteriaceae,escherichia,coli,ATCC 8739,E_coli_ATCC8739,GCF_000019385.1,complete,1,A
+enterobacteriaceae,escherichia,coli,ED1a,E_coli_ED1a,GCF_000026305.1,chromosome,1,B2
+enterobacteriaceae,escherichia,coli,E24377A,E_coli_E24377A,GCF_003028775.1,chromosome,1,B1
+enterobacteriaceae,escherichia,coli,CFT073,E_coli_CFT073,GCF_000007445.1,complete,1,B2
+enterobacteriaceae,escherichia,coli,IAI1,E_coli_IAI1,GCF_000026265.1,complete,1,B1
+enterobacteriaceae,escherichia,coli,SMS-3-5,E_coli_SMS35,GCF_000019645.1,complete,5,D
+enterobacteriaceae,escherichia,coli,HS,E_coli_HS,GCF_000017765.1,complete,1,A
+enterobacteriaceae,escherichia,coli,SE11,E_coli_SE11,GCF_000010385.1,complete,7,B1
+enterobacteriaceae,escherichia,coli,UMN026,E_coli_UMN026,GCF_000026325.1,chromosome,3,D
+enterobacteriaceae,escherichia,coli,UTI89,E_coli_UTI89,GCF_000013265.1,complete,2,B2
+enterobacteriaceae,escherichia,coli,55989,E_coli_55989,GCF_000026245.1,complete,1,B1
+enterobacteriaceae,escherichia,coli,536,E_coli_536,GCF_000013305.1,complete,1,B2
+enterobacteriaceae,shigella,dysenteriae,07-3308,S_dysenteriae_073308,GCF_002949755.1,complete,2,
+enterobacteriaceae,shigella,boydii,BS512; CDC 3083-94,S_boydii_CDC308394,GCF_000020185.1,complete,6,
+enterobacteriaceae,shigella,flexneri,2457T,S_flexneri_2a_2457T,GCF_000007405.1,complete,1,
+enterobacteriaceae,shigella,flexneri,8401,S_flexneri_5_8401,GCF_000013585.1,complete,1,
+#
+# Removed from analysis because all genes were lost
+# enterobacteriaceae,escherichia,coli,K-12 substr. MG1655,E_coli_K12MG1655,GCF_000005845.2,complete,1,A
+# enterobacteriaceae,shigella,flexneri,301,S_flexneri_2a_301,GCF_000006925.2,complete,2,
+#
+# Shigellas not found in NCBI
+#enterobacteriaceae,shigella,flexneri,24570,S_flexneri_2a_24570,GCF_001078805.1,scaffold,,
+#enterobacteriaceae,shigella,flexneri,5 8401,S_flexneri_58401,,,,
+#enterobacteriaceae,shigella,sonnei,046,S_sonnei_046,,,,
+#enterobacteriaceae,shigella,boydii,227,S_boydii_227,,,,
+#
+# Ecolis not found in NCBI
+#enterobacteriaceae,escherichia,coli,EDL933,E_coli_EDL933,GCF_000006665.1,chromosome,2,
+#enterobacteriaceae,escherichia,coli,0127 H6 E2348 69,E_coli_0127,,,,B2
+#enterobacteriaceae,escherichia,coli,APEC O1,E_coli_APECO1,GCF_000014845.1,complete,3,B2
+#enterobacteriaceae,escherichia,coli,O157H7,E_coli_O157H7,,,,

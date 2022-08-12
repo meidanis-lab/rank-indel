@@ -1,0 +1,5 @@
+family,genus,species,strain,annotation,assembly,level,#replicons,group
+vibrionaceae,vibrio,alginolyticus,ZJ-T,V_algi_ZJT,GCF_001679745.1,complete,2,harveyi
+vibrionaceae,vibrio,cholerae,N16961,V_chol_N16961,GCF_000006745.1,complete,2,cholerae
+vibrionaceae,vibrio,fluvialis,A8,V_fluvi_A8,GCF_013181325.1,complete,2,fluvialis
+vibrionaceae,aliivibrio,salmonicida,VS224,A_salm_VS224,GCF_003942025.1,complete,4,aliivibrio
