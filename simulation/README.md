@@ -19,7 +19,7 @@ ngesh -L 20 -x enum -r seed > dummy_tree.nwk
 ```
 2) Generate synthetic genomes:
 ```bash
-./simulate_dcj.py -g 4000 -x 2 -i 0.2 -e 0.4 --indel_size_zipf 4 -c -l dummy_tree.nwk 2> simulate_dcj.log > dummy_data.unimog
+./simulate_dcj.py -g 5000 -x 2 -i 0.2 -e 0.4 --indel_size_zipf 4 -c -l dummy_tree.nwk 2> simulate_dcj.log > dummy_data.unimog
 ```
 - `-g`: number of genes in root genome;
 - `-x`: number of chromosomes in root genome;
