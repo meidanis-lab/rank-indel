@@ -5,7 +5,6 @@ NSAMPLES := $(shell ls ${DATA} | wc -l)
 
 rank_matrix: ${DATA}
 	cd rank && $(MAKE)
-	# TODO: refactor duplicated code.
 	for i in `seq 1 ${NSAMPLES}`; do \
 		ls $</$${i}/* | xargs ./gen_pairwise_comparisons.py | parallel --colsep '\t' rank/dist.py 0 0 {} | tr '\t' ',' | ./build_distance_matrix.py - > rank_matrix_$${i}.csv; \
 		ls $</$${i}/* | xargs ./gen_pairwise_comparisons.py | parallel --colsep '\t' rank/dist.py 0 1 {} | tr '\t' ',' | ./build_distance_matrix.py - > rankindl_matrix_$${i}.csv; \
@@ -17,6 +16,6 @@ dcj_matrix: ../45-jackknife/samples
 	done
 
 clean:
-	rm -f *.csv
+	rm -f *.csv *.unimog *.log
 	cd rank && $(MAKE) clean
 	cd dcj && rm -f *.sol *.lp *.ids *.csv *.unimog
