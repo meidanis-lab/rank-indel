@@ -11,5 +11,16 @@ The code to generate the figures and comparison metrics is available in the jupy
 
 ## DCJ-Indel distance for real data
 :warning: **Requires Python 2 and Gurobi**
+To generate the results for the DCJ-Indel distance, run the following:
+```
+cd 60-matrix
+make dcj_matrix
+cd ../70-tree
+make dcj_nj_rooted_tree
+```
+The outputs are the Newick files containing the phylogenetic trees.
+
+The code to generate the figures and comparison metrics is available in the jupyter notebook `70-tree/analysis.ipynb`.
 
 ## Rank and DCJ-Indel distances for simulated data
+See the folder `simulation`.
