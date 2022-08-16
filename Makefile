@@ -8,7 +8,7 @@ R := 0.5
 .PHONY: usage 00-gff 10-amplicon 20-wp 30-pcla 33-repeats 36-pcla-norep 40-genome 45-jackknife 50-gen 60-matrix 70-tree
 
 usage:
-	@echo "Usage: make [test | all | small_vibrios | big_vibrios | esche_shige | drosophila] [OUTGROUP= annotation of outgroup organism] [N= number of samples (default: 50)] [R= float between 0.0 and 1.0 for jackknife rate (default: 0.5)]"
+	@echo "Usage: make [esche_shige | test] [OUTGROUP= annotation of outgroup organism] [N= number of samples (default: 50)] [R= float between 0.0 and 1.0 for jackknife rate (default: 0.5)]"
 
 query_%: $(CONFIG)/%.csv
 	cd 00-gff && $(MAKE) $@
