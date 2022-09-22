@@ -14,21 +14,21 @@ ROOTED_TREE := ../70-tree/rooted-nj-tree-with-outgroup.R
 # result dir
 OUTPUT_DIR := results
 
-.PHONY: unimog2gen clean
+.PHONY: unimog2adj clean
 
 %_tree: %_matrix_${NGENES}.csv
 	${ROOTED_TREE} $< $@ ${OUTGROUP}
 
-rank_matrix_${NGENES}.csv: unimog2gen
+rank_matrix_${NGENES}.csv: unimog2adj
 	ls *.gen | xargs ${GEN_COMPS} | parallel --colsep '\t' ${RANK} {} | tr '\t' ',' | ${MAKE_MATRIX} - > ${OUTPUT_DIR}/$@
 
-rankindl_matrix_${NGENES}.csv: unimog2gen
+rankindl_matrix_${NGENES}.csv: unimog2adj
 	ls *.gen | xargs ${GEN_COMPS} | parallel --colsep '\t' ${RANKINDL} {} | tr '\t' ',' | ${MAKE_MATRIX} - > ${OUTPUT_DIR}/$@
 
-unimog2gen: ${OUTPUT_DIR}/dummy_data_${NGENES}.unimog
+unimog2adj: ${OUTPUT_DIR}/dummy_data_${NGENES}.unimog
 	./split_unimog.sh $<
 	for i in L*; do \
-	    ./unimog2adj.py ${i} > ${i}.adj; \
+	    ./unimog2adj.py $${i} > $${i}.adj; \
 	done
 
 dummy_data_${NGENES}.unimog: dummy_tree.nwk
