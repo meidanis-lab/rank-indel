@@ -6,20 +6,24 @@ OUTGROUP := L20
 RANK := ../60-matrix/rank-joao/dist.py 0 0
 RANKINDL := ../60-matrix/rank-joao/dist.py 0 1
 # build matrix
-MATRIX := ../60-matrix/build_distance_matrix.py
+MAKE_MATRIX := ../60-matrix/build_distance_matrix.py
+# generate pairwise comparisons
+GEN_COMPS := ../60-matrix/gen_pairwise_comparisons.py
+# rooted tree
+ROOTED_TREE := ../70-tree/rooted-nj-tree-with-outgroup.R
 # result dir
 OUTPUT_DIR := results
 
 .PHONY: unimog2gen clean
 
 %_tree: %_matrix_${NGENES}.csv
-	../70-tree/rooted-nj-tree-with-outgroup.R $< $@ ${OUTGROUP}
+	${ROOTED_TREE} $< $@ ${OUTGROUP}
 
 rank_matrix_${NGENES}.csv: unimog2gen
-	ls *.gen | xargs ../60-matrix/gen_pairwise_comparisons.py | parallel --colsep '\t' ${RANK} {} | tr '\t' ',' | ../60-matrix/build_distance_matrix.py - > ${OUTPUT_DIR}/$@
+	ls *.gen | xargs ${GEN_COMPS} | parallel --colsep '\t' ${RANK} {} | tr '\t' ',' | ${MAKE_MATRIX} - > ${OUTPUT_DIR}/$@
 
 rankindl_matrix_${NGENES}.csv: unimog2gen
-	ls *.gen | xargs ../60-matrix/gen_pairwise_comparisons.py | parallel --colsep '\t' ${RANKINDL} {} | tr '\t' ',' | ../60-matrix/build_distance_matrix.py - > ${OUTPUT_DIR}/$@
+	ls *.gen | xargs ${GEN_COMPS} | parallel --colsep '\t' ${RANKINDL} {} | tr '\t' ',' | ${MAKE_MATRIX} - > ${OUTPUT_DIR}/$@
 
 unimog2gen: ${OUTPUT_DIR}/dummy_data_${NGENES}.unimog
 	./unimog2gen.sh $<
