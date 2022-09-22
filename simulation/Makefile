@@ -26,7 +26,10 @@ rankindl_matrix_${NGENES}.csv: unimog2gen
 	ls *.gen | xargs ${GEN_COMPS} | parallel --colsep '\t' ${RANKINDL} {} | tr '\t' ',' | ${MAKE_MATRIX} - > ${OUTPUT_DIR}/$@
 
 unimog2gen: ${OUTPUT_DIR}/dummy_data_${NGENES}.unimog
-	./unimog2gen.sh $<
+	./split_unimog.sh $<
+	for i in L*; do \
+	    ./unimog2adj.py ${i} > ${i}.adj; \
+	done
 
 dummy_data_${NGENES}.unimog: dummy_tree.nwk
 	./simulate_dcj.py -g ${NGENES} -x 2 -i 0.2 -e 0.4 --indel_size_zipf 4 -c -l $< 2> simulate_dcj.log > ${OUTPUT_DIR}/$@
