@@ -5,6 +5,7 @@ OUTGROUP := L20
 OUTPUT_DIR := results
 
 # auxiliary scripts
+DCJ := ../60-matrix/dcj
 RANK := ../60-matrix/rank/dist.py 0 0
 RANKINDL := ../60-matrix/rank/dist.py 0 1
 MAKE_MATRIX := ../60-matrix/build_distance_matrix.py
@@ -29,6 +30,12 @@ rank_matrix_${NGENES}.csv: unimog2adj
 
 rankindl_matrix_${NGENES}.csv: unimog2adj
 	ls L*.txt | xargs ${GEN_COMPS} | parallel --colsep '\t' ${RANKINDL} {} | tr '\t' ',' | ${MAKE_MATRIX} - > ${OUTPUT_DIR}/$@
+
+dcj_matrix_${NGENES}.csv: unimog2pairs
+	ls *_vs_*.unimog | parallel --colsep '\t' ./dcjindel.sh {} | tr '\t' ',' | ./build_distance_matrix.py - > $@
+
+unimog2pairs: dummy_data_${NGENES}.unimog
+	./unimog2pairs.py $<
 
 unimog2adj: split_unimog
 	for i in L*; do \
