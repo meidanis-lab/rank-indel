@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""
+"""Example
 Input:
     1 2 -3 )
     4 )
@@ -23,7 +23,6 @@ def get_extrs(genes):
 
 def get_adjs(extrs):
     return '\n'.join(f'{extr1} {extr2}' for extr1, extr2 in zip(extrs[1::2], extrs[2::2]))
-
 
 with fileinput.input() as fin:
     for line in fin:
