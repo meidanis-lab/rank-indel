@@ -1,10 +1,10 @@
 ## Running the pipelines
-The pipeline for the rank distance can be easily run as follows:
+The pipeline for the rank distance can be run as follows:
 ```bash
 make rank_tree
 make rankindl_tree
 ```
-The DCJ pipeline, on the other hand, relies on Python 2 in an intermediate step.
+The DCJ pipeline relies on Python 2 in an intermediate step.
 In addition, one must have a working installation of Gurobi 9.5.1.
 The steps must be the following:
 ```bash
@@ -14,6 +14,7 @@ conda deactivate
 ```
 
 ## Parameters of simulator
+The simulator is run with the following parameters by default, but they can be adjusted by the user.
 ```bash
 ./simulate_dcj.py -g 5000 -x 2 -i 0.2 -e 0.4 --indel_size_zipf 4 -c -l dummy_tree.nwk 2> simulate_dcj.log > dummy_data.unimog
 ```
