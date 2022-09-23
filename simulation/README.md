@@ -34,3 +34,8 @@ ls *.gen | xargs ../60-matrix/gen_pairwise_comparisons.py > comparisons.txt
 time cat comparisons.txt | parallel --colsep '\t' ${DIST} {}
 ```
 where `DIST` is the script that computes a rearrangement distance.
+
+## References
+The programs `simulate_dcj.py` and `trees.py` were taken from https://gitlab.ub.uni-bielefeld.de/gi/ding and described by Bohnenkämper, L., Braga, M.D.V., Doerr, D., Stoye, J. (2020).
+
+- Bohnenkämper, L., Braga, M.D.V., Doerr, D., Stoye, J. (2020). Computing the Rearrangement Distance of Natural Genomes. In: Schwartz, R. (eds) Research in Computational Molecular Biology. RECOMB 2020. Lecture Notes in Computer Science(), vol 12074. Springer, Cham. [DOI](https://doi.org/10.1007/978-3-030-45257-5_1)
