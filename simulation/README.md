@@ -51,12 +51,12 @@ ls L*.adj | xargs ../60-matrix/gen_pairwise_comparisons.py | parallel --colsep '
 ```bash
 ls L*.adj | xargs ../60-matrix/gen_pairwise_comparisons.py | parallel --colsep '\t' ../60-matrix/rank-joao/dist.py 0 1 {} | tr '\t' ',' | ../60-matrix/build_distance_matrix.py - > rankindl_matrix.csv
 ```
-### 2) Compute DCJ
+### 2) Compute DCJ-Indel
 2.1) Split `unimog` file into smaller ones with **all** pairwise combinations of genomes:
 ```bash
 ./unimog2pairs.py dummy_data.unimog
 ```
-2.2) 
+2.2) Run DCJ-Indel 
 ```bash
 ls *_vs_*.unimog | parallel --colsep '\t' ./dcjindel.sh {} | tr '\t' ',' | ../60-matrix/build_distance_matrix.py - > dcj_matrix.csv
 ```
