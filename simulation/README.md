@@ -5,11 +5,11 @@ make rank_tree
 make rankindl_tree
 ```
 The DCJ pipeline, on the other hand, relies on Python 2 in an intermidiate step.
+In addition, one must have a working installation of Gurobi 9.5.1.
 The steps must be the following:
 ```bash
-make unimog2gen        # this will run up to the generation of the Gen files
 conda activate dcj     # activate env with python 2
-ls *.gen | xargs ../60-matrix/gen_pairwise_comparisons.py | parallel -j 7 --colsep '\t' ../60-matrix/dcj/dcjindel.sh {} | tr '\t' ',' | ../60-matrix/build_distance_matrix.py - > dcj_matrix.csv
+make dcj_matrix_5000.csv
 conda deactivate
 ../70-tree/rooted-nj-tree-with-outgroup.R dcj_matrix.csv dcj_tree L20
 ```
