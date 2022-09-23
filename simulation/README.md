@@ -13,7 +13,7 @@ make dcj_tree
 conda deactivate
 ```
 
-## Parameters of simulator
+## Parameters of the simulator
 The simulator is run with the following parameters by default, but they can be adjusted by the user.
 ```bash
 ./simulate_dcj.py -g 5000 -x 2 -i 0.2 -e 0.4 --indel_size_zipf 4 -c -l dummy_tree.nwk 2> simulate_dcj.log > dummy_data.unimog
