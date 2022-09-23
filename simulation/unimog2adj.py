@@ -31,10 +31,14 @@ with fileinput.input() as fin:
             genes = line.strip(')').split()
             extrs = get_extrs(genes)
             print(extrs[0], extrs[-1])
-            print(get_adjs(extrs))
+            adjs = get_adjs(extrs)
+            if adjs:
+                print(adjs)
         elif line.endswith(']'):
             genes = line.strip(']').split()
             extrs = get_extrs(genes)
-            print(get_adjs(extrs))
+            adjs = get_adjs(extrs)
+            if adjs:
+                print(adjs)
         else:
             raise SystemExit('Not circular nor linear.')
