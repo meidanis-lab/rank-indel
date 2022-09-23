@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-import fileinput
+import sys
 from itertools import combinations
 
-with fileinput.input() as fin:
+with open(sys.argv[1], 'r') as fin:
     genomes = dict()
     curr = None
     for line in fin:
@@ -14,7 +14,7 @@ with fileinput.input() as fin:
             genomes[curr].append(line.strip())
 
 for i, j in combinations(genomes, 2):
-    output = f'{i[1:]}_vs_{j[1:]}.unimog'
+    output = i[1:] + '_vs_' + j[1:] + '.unimog'
     with open(output, 'w') as fout:
         fout.write(i + '\n')
         fout.write('\n'.join(genomes[i]) + '\n')

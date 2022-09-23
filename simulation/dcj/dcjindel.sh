@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-DCJ="../60-matrix/dcj"
+DCJ="../../60-matrix/dcj"
 GENOME_A=$(echo $1 | cut -d. -f1 | cut -d_ -f1)
 GENOME_B=$(echo $1 | cut -d. -f1 | cut -d_ -f3)
 UNIMOG_FILE_NAME="${GENOME_A}_vs_${GENOME_B}"
