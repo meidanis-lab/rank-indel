@@ -12,8 +12,9 @@ if len(sys.argv) != 3:
 with open(sys.argv[1], 'r') as fin:
     params = dict()
     for line in fin:
-        k, *v = line.strip().split()
-        params[k] = v
+        if not line.startswith('#'):
+            k, *v = line.strip().split()
+            params[k] = v
 
 niters = int(sys.argv[2])
 
