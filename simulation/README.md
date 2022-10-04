@@ -1,5 +1,5 @@
 ## Running the pipelines
-Each `make` below geneates a phylogenetic tree in Newick format using the distance model specified.
+Each `make` below generates a phylogenetic tree in Newick format using the distance model specified.
 ```bash
 make rank_tree
 make rankindl_tree
