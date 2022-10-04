@@ -1,5 +1,6 @@
 download*
 mutations/data/*
+*.mat
 *.ipynb_checkpoints
 *.ids
 *.log
