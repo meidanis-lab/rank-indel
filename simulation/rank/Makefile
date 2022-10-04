@@ -10,13 +10,13 @@ ROOTED_TREE := ../../70-tree/rooted-nj-tree-with-outgroup.R
 
 .PHONY: split_unimog unimog2pairs unimog2adj clean
 
-%_tree: %_matrix.csv
+%_tree: %_matrix.mat
 	${ROOTED_TREE} $< $@ ${OUTGROUP}
 
-rank_matrix.csv: unimog2adj
+rank_matrix.mat: unimog2adj
 	ls L*.txt | xargs ${GEN_COMPS} | parallel --colsep '\t' ${RANK} {} | tr '\t' ',' | ${BUILD_MATRIX} - > $@
 
-rankindl_matrix.csv: unimog2adj
+rankindl_matrix.mat: unimog2adj
 	ls L*.txt | xargs ${GEN_COMPS} | parallel --colsep '\t' ${RANKINDL} {} | tr '\t' ',' | ${BUILD_MATRIX} - > $@
 
 unimog2adj: split_unimog
@@ -29,4 +29,4 @@ split_unimog: ../dummy_data.unimog
 	./split_unimog.sh $<
 
 clean:
-	rm -f *.txt *.nwk *.csv
+	rm -f *.txt *.nwk *.csv *.mat
