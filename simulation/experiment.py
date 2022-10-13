@@ -6,10 +6,10 @@ import subprocess
 import shutil
 
 if len(sys.argv) != 4:
-    raise SystemExit('usage: ./experiment.py [distance model: rank or dcj] [parameters file] [number of iterations]')
+    raise SystemExit('usage: ./experiment.py [distance model: rank | rankindl | dcj] [parameters file] [number of iterations]')
 
-if sys.argv[1] not in {'rank', 'dcj'}:
-    raise SystemExit('Invalid distance model: must be either \'dcj\' or \'rank\'')
+if sys.argv[1] not in {'rank', 'rankindl', 'dcj'}:
+    raise SystemExit('Invalid distance model: must be either \'dcj\', \'rank\', or \'rankindl\'')
 
 with open(sys.argv[2], 'r') as fin:
     params = []
