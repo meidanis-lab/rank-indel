@@ -2,7 +2,8 @@
 OUTGROUP := L20
 
 # auxiliary scripts
-RANK := ../../60-matrix/rank/dist.py 0 0
+#RANK := ../../60-matrix/rank/dist.py 0 0
+RANK := ../../60-matrix/rank/rank.py
 RANKINDL := ../../60-matrix/rank/dist.py 0 1
 BUILD_MATRIX := ../../60-matrix/build_distance_matrix.py
 GEN_COMPS := ../../60-matrix/gen_pairwise_comparisons.py
