@@ -21,7 +21,7 @@ class Genome:
         return self._adjacencies[x] == x
     def null(self, x):
         # A/B-null extremities can be simply non existent in our dictionary
-        return x not in self._adjacencies
+        return x not in self._extremities
     def _construct(self, extremities):
         for i, j in zip(extremities[1:-1:2], extremities[2:-1:2]):
             self[i] = j
