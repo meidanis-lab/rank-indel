@@ -6,7 +6,7 @@ RANKINDL := rank/dist.py 0 1
 RANKC := rank/rank.py
 UNIMOG := unimog/UniMoG-java11.jar
 
-.PHONY: rank_matrix dcj_matrix convert_gen clean
+.PHONY: rankc_matrix rank_matrix rankindl_matrix dcj_matrix convert_gen clean
 
 rankc_matrix: rank/samples
 	for i in `seq 1 ${NSAMPLES}`; do \
