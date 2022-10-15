@@ -18,12 +18,13 @@ query_%: $(CONFIG)/%.csv
 	$(MAKE) 70-tree
 
 70-tree: 60-matrix
-	cd $@ && $(MAKE) rank_nj_rooted_tree OUTGROUP=${OUTGROUP} && $(MAKE) rankindl_nj_rooted_tree OUTGROUP=${OUTGROUP}
+	cd $@ && $(MAKE) rankc_nj_rooted_tree OUTGROUP=${OUTGROUP}
+	# cd $(MAKE) rank_nj_rooted_tree OUTGROUP=${OUTGROUP} && $(MAKE) rankindl_nj_rooted_tree OUTGROUP=${OUTGROUP}
 	# TODO: add later because now it depends on Gurobi and Python 2
 	# cd $@ && $(MAKE) dcj_nj_rooted_tree OUTGROUP=${OUTGROUP}
 
 60-matrix: 50-gen
-	cd $@ && $(MAKE) rank_matrix
+	cd $@ && $(MAKE) rankc_matrix
 	# TODO: add later because now it depends on Gurobi and Python 2
 	# cd $@ && $(MAKE) dcj_matrix
 
