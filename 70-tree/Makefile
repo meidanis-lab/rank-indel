@@ -3,7 +3,12 @@ SAMPLES := ../45-jackknife/samples
 NSAMPLES := $(shell ls ${SAMPLES} | wc -l)
 OUTGROUP := ""
 
-.PHONY: rank_nj_rooted_tree rankindl_nj_rooted_tree dcj_nj_rooted_tree clean
+.PHONY: rankc_nj_rooted_tree rank_nj_rooted_tree rankindl_nj_rooted_tree dcj_nj_rooted_tree clean
+
+rankc_nj_rooted_tree: ${DATA}
+	for i in `seq 1 ${NSAMPLES}`; do \
+	    ./rooted-nj-tree-with-outgroup.R $</rankc_matrix_$${i}.mat rankc_nj_tree_$${i} ${OUTGROUP}; \
+	done
 
 rankindl_nj_rooted_tree: ${DATA}
 	for i in `seq 1 ${NSAMPLES}`; do \
