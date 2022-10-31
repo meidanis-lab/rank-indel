@@ -31,7 +31,7 @@ dummy_data.unimog: dummy_tree.nwk
 	    -i ${INSERTION_RATE} \
 	    -e ${DELETION_RATE} \
 	    --indel_size_zipf ${INDEL_SIZE} \
-	    -c -l $< 2> simulate_dcj.log > $@
+	    -l $< 2> simulate_dcj.log > $@
 
 dummy_tree.nwk:
 	ngesh -L ${NTAXA} -x enum -r seed > $@
