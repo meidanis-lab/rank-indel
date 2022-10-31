@@ -115,7 +115,7 @@ if __name__ == '__main__':
 
         # loop goes from 1 through n+1 for better manipulations of output directories later on
         for i in tqdm(range(1, args.number_samples+1)):
-            os.makedirs(f'{OUTPUT_DIR}/{i}')
+            os.makedirs(f'{OUTPUT_DIR}/{i}', exist_ok=True)
 
             for filename, genome in genomes.items():
                 outfile = f'{OUTPUT_DIR}/{i}/' + filename.split('/')[-1]
