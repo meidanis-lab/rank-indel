@@ -1,14 +1,21 @@
 CONFIG := config
-OUTGROUP := ""
+DIST := rank
+OUTGRP := ""
 
 # default parameters for jackknife
-N := 50
-R := 0.5
+N := 1
+R := 0
 
 .PHONY: usage 00-gff 10-amplicon 20-wp 30-pcla 33-repeats 36-pcla-norep 40-genome 45-jackknife 50-gen 60-matrix 70-tree
 
 usage:
-	@echo "Usage: make [esche_shige | test] [OUTGROUP= annotation of outgroup organism] [N= number of samples (default: 50)] [R= float between 0.0 and 1.0 for jackknife rate (default: 0.5)]"
+	@echo "Usage: make [esche_shige | test]"
+	@echo "Required variables:"
+	@echo "\tDIST,\tdistance model, one of [rank | rankc | rankindl | dcj] (default: DIST=rank)"
+	@echo "\tOUTGRP,\tannotation of outgroup organism] (see CSV in config folder, e.g. OUTGRP=A_salm_VS224)"
+	@echo "Optional variables:"
+	@echo "\tN,\tnumber of samples for jeckknife (default: N=1)"
+	@echo "\tR,\tfloat between 0.0 and 1.0 for jackknife rate (default: R=0)"
 
 query_%: $(CONFIG)/%.csv
 	cd 00-gff && $(MAKE) $@
@@ -18,13 +25,12 @@ query_%: $(CONFIG)/%.csv
 	$(MAKE) 70-tree
 
 70-tree: 60-matrix
-	cd $@ && $(MAKE) rankc_nj_rooted_tree OUTGROUP=${OUTGROUP}
-	# cd $(MAKE) rank_nj_rooted_tree OUTGROUP=${OUTGROUP} && $(MAKE) rankindl_nj_rooted_tree OUTGROUP=${OUTGROUP}
+	cd $@ && $(MAKE) ${DIST}_nj_rooted_tree OUTGRP=${OUTGRP}
 	# TODO: add later because now it depends on Gurobi and Python 2
-	# cd $@ && $(MAKE) dcj_nj_rooted_tree OUTGROUP=${OUTGROUP}
+	# cd $@ && $(MAKE) dcj_nj_rooted_tree OUTGRP=${OUTGRP}
 
 60-matrix: 50-gen
-	cd $@ && $(MAKE) rankc_matrix
+	cd $@ && $(MAKE) ${DIST}
 	# TODO: add later because now it depends on Gurobi and Python 2
 	# cd $@ && $(MAKE) dcj_matrix
 
