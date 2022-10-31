@@ -1,8 +1,8 @@
 DATA := ../40-genome
 
 # default parameters for jackknife
-N := 50
-R := 0.5
+N := 1
+R := 0
 
 .PHONY: jackknife clean
 
