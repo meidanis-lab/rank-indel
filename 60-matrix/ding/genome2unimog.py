@@ -48,4 +48,4 @@ if __name__ == '__main__':
                     #   We need the gene orders AND the type of chromosome to make an unimig file. Probably, we
                     #       should specify the type of chromosome earlier in the pipeline and remove this feature
                     #       from the parse_genome.py script in 50-gen.
-                    outfile.write(line.strip().replace('+', '') + ' )' + '\n')
+                    outfile.write(line.strip().replace('+', '') + '\n')
