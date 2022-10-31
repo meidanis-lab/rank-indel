@@ -9,7 +9,7 @@ GENOME_B=$(extract_organism_name_from_path $2)
 UNIMOG_FILE_NAME="${GENOME_A}-vs-${GENOME_B}"
 PARENT_PATH=$(cd $(dirname "${BASH_SOURCE[0]}"); pwd -P)
 
-${PARENT_PATH}/genome2unimog.py --input $1 $2 --output ${UNIMOG_FILE_NAME}.unimog
+${PARENT_PATH}/genome2unimog.py --input $1 $2 --output ${PARENT_PATH}/${UNIMOG_FILE_NAME}.unimog
 
 ${PARENT_PATH}/unimog_to_ilp.py -i ${UNIMOG_FILE_NAME}.unimog -u ${UNIMOG_FILE_NAME}.ids -o ${UNIMOG_FILE_NAME}.lp 2> /dev/null
 
