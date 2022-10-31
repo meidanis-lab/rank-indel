@@ -2,9 +2,9 @@
 OUTGROUP := L20
 
 # auxiliary scripts
-RANK := ../../60-matrix/rank/dist.py 0 0
+RANK := ../../60-matrix/rank/dist_rank.sh
 RANKC := ../../60-matrix/rank/rank.py
-RANKINDL := ../../60-matrix/rank/dist.py 0 1
+RANKINDL := ../../60-matrix/rank/dist_rankindl.sh
 BUILD_MATRIX := ../../60-matrix/build_distance_matrix.py
 GEN_COMPS := ../../60-matrix/gen_pairwise_comparisons.py
 ROOTED_TREE := ../../70-tree/rooted-nj-tree-with-outgroup.R
@@ -14,14 +14,11 @@ ROOTED_TREE := ../../70-tree/rooted-nj-tree-with-outgroup.R
 %_tree: %_matrix.mat
 	${ROOTED_TREE} $< $@ ${OUTGROUP}
 
-rankc_matrix.mat: unimog2adj
-	ls L*.txt | xargs ${GEN_COMPS} | parallel --colsep '\t' ${RANKC} {} | tr '\t' ',' | ${BUILD_MATRIX} - > $@
-
-rank_matrix.mat: unimog2adj
-	ls L*.txt | xargs ${GEN_COMPS} | parallel --colsep '\t' ${RANK} {} | tr '\t' ',' | ${BUILD_MATRIX} - > $@
-
-rankindl_matrix.mat: unimog2adj
-	ls L*.txt | xargs ${GEN_COMPS} | parallel --colsep '\t' ${RANKINDL} {} | tr '\t' ',' | ${BUILD_MATRIX} - > $@
+rank: ${RANK} unimog2adj
+rankc: ${RANKC} unimog2adj
+rankindl: ${RANKINDL} unimog2adj
+rank rankc rankindl:
+	ls L*.txt | xargs ${GEN_COMPS} | parallel --colsep '\t' $< {} | tr '\t' ',' | ${BUILD_MATRIX} - > $@_matrix.mat
 
 unimog2adj: split_unimog
 	for i in L*; do \
