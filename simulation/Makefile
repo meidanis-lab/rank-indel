@@ -1,5 +1,5 @@
 # known after running 'dummy_tree.nwk' with '-r seed'
-OUTGROUP := L20
+OUTGRP := L20
 
 # number of taxa
 NTAXA := 20
@@ -9,7 +9,6 @@ INSERTION_RATE := 0.2
 DELETION_RATE := 0.4
 NGENES := 5000
 NCHRS := 2
-INDEL_SIZE := 4
 
 .PHONY: clean
 
@@ -30,7 +29,6 @@ dummy_data.unimog: dummy_tree.nwk
 	    -x ${NCHRS} \
 	    -i ${INSERTION_RATE} \
 	    -e ${DELETION_RATE} \
-	    --indel_size_zipf ${INDEL_SIZE} \
 	    -l $< 2> simulate_dcj.log > $@
 
 dummy_tree.nwk:
