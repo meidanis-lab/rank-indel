@@ -1,5 +1,5 @@
 CONFIG := config
-DIST := rank
+DIST := rankc
 OUTGRP := ""
 
 # default parameters for jackknife
