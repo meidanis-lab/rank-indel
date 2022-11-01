@@ -20,7 +20,7 @@ ROOTED_TREE := ../../70-tree/rooted-nj-tree-with-outgroup.R
 #	./unimog2pairs.py $<
 
 dcj_matrix.mat: ../dummy_data.unimog
-	java -jar ${UNIMOG} -m=6 -d $< | egrep -e "^L[0-9]{2}" -e "^[0-9]{2}" | ./triangular2square.awk > $@
+	\time -a -f "%e" -o timing.txt java -jar ${UNIMOG} -m=6 -d $< | egrep -e "^L[0-9]{2}" -e "^[0-9]{2}" | ./triangular2square.awk > $@
 
 clean:
 	rm -f *.nwk *.unimog *.lp *.sol *.ids *.log *.csv *.mat
