@@ -18,7 +18,7 @@ rank_matrix.mat: ${RANK} unimog2adj
 rankc_matrix.mat: ${RANKC} unimog2adj
 rankindl_matrix.mat: ${RANKINDL} unimog2adj
 rank_matrix.mat rankc_matrix.mat rankindl_matrix.mat:
-	ls L*.txt | xargs ${GEN_COMPS} | parallel --colsep '\t' $< {} | tr '\t' ',' | ${BUILD_MATRIX} - > $@
+	ls L*.txt | xargs ${GEN_COMPS} | \time -a -f "%e" -o timing.txt parallel --colsep '\t' $< {} | tr '\t' ',' | ${BUILD_MATRIX} - > $@
 
 unimog2adj: split_unimog
 	for i in L*; do \
