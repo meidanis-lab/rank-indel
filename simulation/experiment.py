@@ -16,8 +16,7 @@ with open(sys.argv[2], 'r') as fin:
     for line in fin:
         line = line.strip()
         if line and not line.startswith('#'):
-            # 1st: parameter name; 2nd: low value; 3rd: high value
-            # e.g. 'g 5000 10000'
+            # 1st: parameter name; 2nd: low value; 3rd: high value e.g. 'g 5000 10000'
             k, low, high = line.split()
             param = dict()
             param[k.lower()] = low
@@ -31,8 +30,7 @@ for keys in itertools.product(*params):
     conf = ''.join(keys)
     print(f'Running configuration {conf}')
 
-    # WARNING: an ordering is expected in params, and, therefore, 
-    # in the conf file!
+    # WARNING: an ordering is expected in params, and, therefore, in the conf file!
     g, x, i, e, z = [d[k] for k, d in zip(keys, params)]
 
     for j in range(niters):
