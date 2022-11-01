@@ -10,18 +10,15 @@ DELETION_RATE := 0.4
 NGENES := 5000
 NCHRS := 2
 
-.PHONY: clean
+.PHONY: rank rankindl dcj clean
 
-rank_tree: dummy_data.unimog
-	cd rank && $(MAKE) rank_tree
-
-rankindl_tree: dummy_data.unimog
-	cd rank && $(MAKE) rankindl_tree
+rank rankindl: dummy_data.unimog
+	cd rank && $(MAKE) $@_tree
 
 # WARNING: requires Python 2 and Gurobi
 # activate another environment
-dcj_tree: dummy_data.unimog
-	cd dcj && $(MAKE) dcj_tree
+dcj: dummy_data.unimog
+	cd dcj && $(MAKE) $@_tree
 
 dummy_data.unimog: dummy_tree.nwk
 	./simulate_dcj.py \
