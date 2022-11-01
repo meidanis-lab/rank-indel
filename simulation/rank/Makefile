@@ -1,5 +1,5 @@
 # known after running 'dummy_tree.nwk' with '-r seed'
-OUTGROUP := L20
+OUTGRP := L20
 
 # auxiliary scripts
 RANK := ../../60-matrix/rank/dist_rank.sh
@@ -12,13 +12,13 @@ ROOTED_TREE := ../../70-tree/rooted-nj-tree-with-outgroup.R
 .PHONY: split_unimog unimog2pairs unimog2adj clean
 
 %_tree: %_matrix.mat
-	${ROOTED_TREE} $< $@ ${OUTGROUP}
+	${ROOTED_TREE} $< $@ ${OUTGRP}
 
-rank: ${RANK} unimog2adj
-rankc: ${RANKC} unimog2adj
-rankindl: ${RANKINDL} unimog2adj
-rank rankc rankindl:
-	ls L*.txt | xargs ${GEN_COMPS} | parallel --colsep '\t' $< {} | tr '\t' ',' | ${BUILD_MATRIX} - > $@_matrix.mat
+rank_matrix.mat: ${RANK} unimog2adj
+rankc_matrix.mat: ${RANKC} unimog2adj
+rankindl_matrix.mat: ${RANKINDL} unimog2adj
+rank_matrix.mat rankc_matrix.mat rankindl_matrix.mat:
+	ls L*.txt | xargs ${GEN_COMPS} | parallel --colsep '\t' $< {} | tr '\t' ',' | ${BUILD_MATRIX} - > $@
 
 unimog2adj: split_unimog
 	for i in L*; do \
