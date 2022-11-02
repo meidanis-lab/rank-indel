@@ -22,17 +22,17 @@ The parameters are the following:
 When running the Makefile for a particular distance model, we use the program `time` to measure the running time of the program that computes the distance.
 By default, this measurement will be recorded in the `timing.txt` file, but one can change this behavior by specifying, for instance, `TIME=another_timing.txt` when running the Makefile.
 
-We ran the following steps to measure the running time of our programs:
+We ran the following command to measure the running time of our programs:
 ```bash
 for i in `seq 5000 5000 50000`; do make -B ${DIST} NGENES=${i} TIME=${DIST}_timing.txt; done
 ```
-where `${DIST}` is either `rank`, `rankindl`, `rankc`, or `dcj`.
+where `DIST` is either `rank`, `rankindl`, `rankc`, or `dcj`.
 
 ## References
 The programs `simulate_dcj.py` and `trees.py` were taken from https://gitlab.ub.uni-bielefeld.de/gi/ding and described by Bohnenkämper, L., Braga, M.D.V., Doerr, D., Stoye, J. (2020).
 
 - Bohnenkämper, L., Braga, M.D.V., Doerr, D., Stoye, J. (2020). Computing the Rearrangement Distance of Natural Genomes. In: Schwartz, R. (eds) Research in Computational Molecular Biology. RECOMB 2020. Lecture Notes in Computer Science(), vol 12074. Springer, Cham. [DOI](https://doi.org/10.1007/978-3-030-45257-5_1)
 
-We also make use of UniMoG, available at http://bibiserv.cebitec.uni-bielefeld.de/dcj, to compute the DCJ-Indel distance.
+We also make use of UniMoG, available at http://bibiserv.cebitec.uni-bielefeld.de/dcj, to compute the DCJ-Indel distance, since it performs better than the above when there are no repeated markers.
 
 - Braga, M. D., Willing, E., & Stoye, J. (2011). Double cut and join with insertions and deletions. Journal of computational biology : a journal of computational molecular cell biology, 18(9), 1167–1184. [DOI](https://doi.org/10.1089/cmb.2011.0118)
