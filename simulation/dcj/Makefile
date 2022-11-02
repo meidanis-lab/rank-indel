@@ -2,7 +2,7 @@
 OUTGROUP := L20
 
 # auxiliary scripts
-UNIMOG := ../../60-matrix/dcj/UniMoG-java11.jar
+UNIMOG := ../../60-matrix/unimog/UniMoG-java11.jar
 BUILD_MATRIX := ../../60-matrix/build_distance_matrix.py
 GEN_COMPS := ../../60-matrix/gen_pairwise_comparisons.py
 ROOTED_TREE := ../../70-tree/rooted-nj-tree-with-outgroup.R
