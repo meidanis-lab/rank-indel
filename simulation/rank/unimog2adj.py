@@ -34,8 +34,8 @@ with fileinput.input() as fin:
             adjs = get_adjs(extrs)
             if adjs:
                 print(adjs)
-        elif line.endswith(']'):
-            genes = line.strip(']').split()
+        elif line.endswith('|'):
+            genes = line.strip('|').split()
             extrs = get_extrs(genes)
             adjs = get_adjs(extrs)
             if adjs:
