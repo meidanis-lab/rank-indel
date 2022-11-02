@@ -11,7 +11,7 @@ NTAXA := 20
 INSRATE := 0.2
 DELRATE := 0.4
 NGENES := 5000
-NCHRS := 2
+NCHRS := 20
 
 .PHONY: rank rankc rankindl dcj clean usage
 
