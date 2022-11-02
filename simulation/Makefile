@@ -10,9 +10,9 @@ DELETION_RATE := 0.4
 NGENES := 5000
 NCHRS := 2
 
-.PHONY: rank rankindl dcj clean
+.PHONY: rank rankc rankindl dcj clean
 
-rank rankindl: dummy_data.unimog
+rank rankc rankindl: dummy_data.unimog
 	cd rank && $(MAKE) $@_tree
 
 # WARNING: requires Python 2 and Gurobi
