@@ -9,7 +9,7 @@ make dcj
 ## Parameters of the simulator
 The simulator is run with the following parameters by default, but they can be adjusted by the user.
 ```bash
-./simulate_dcj.py -g 5000 -x 2 -i 0.2 -e 0.4 -l dummy_tree.nwk 2> simulate_dcj.log > dummy_data.unimog
+./simulate_dcj.py -g 5000 -x 20 -i 0.2 -e 0.4 -l dummy_tree.nwk 2> simulate_dcj.log > dummy_data.unimog
 ```
 The parameters are the following:
 - `-g`: number of genes in root genome;
