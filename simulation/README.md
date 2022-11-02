@@ -1,24 +1,32 @@
 ## Running the pipelines
 Each `make` below generates a phylogenetic tree in Newick format using the distance model specified.
 ```bash
-make rank_tree
-make rankindl_tree
-make dcj_tree
+make rank
+make rankindl
+make dcj
 ```
 
 ## Parameters of the simulator
 The simulator is run with the following parameters by default, but they can be adjusted by the user.
 ```bash
-./simulate_dcj.py -g 5000 -x 2 -i 0.2 -e 0.4 --indel_size_zipf 4 -c -l dummy_tree.nwk 2> simulate_dcj.log > dummy_data.unimog
+./simulate_dcj.py -g 5000 -x 2 -i 0.2 -e 0.4 -l dummy_tree.nwk 2> simulate_dcj.log > dummy_data.unimog
 ```
 The parameters are the following:
 - `-g`: number of genes in root genome;
 - `-x`: number of chromosomes in root genome;
 - `-i`: insertion rate;
 - `-e`: deletion rate;
-- `-c`: circular genomes only;
 - `-l`: output the leaves only;
-- `--indel_size_zipf`: size of indel segment sampled from Zipf distribution.
+
+## Performance measurement
+When running the Makefile for a particular distance model, we use the program `time` to measure the running time of the program that computes the distance.
+By default, this measurement will be recorded in the `timing.txt` file, but one can change this behavior by specifying, for instance, `TIME=another_timing.txt` when running the Makefile.
+
+We ran the following steps to measure the running time of our programs:
+```bash
+for i in `seq 5000 5000 50000`; do make -B ${DIST} NGENES=${i} TIME=${DIST}_timing.txt; done
+```
+where `${DIST}` is either `rank`, `rankindl`, `rankc`, or `dcj`.
 
 ## References
 The programs `simulate_dcj.py` and `trees.py` were taken from https://gitlab.ub.uni-bielefeld.de/gi/ding and described by Bohnenkämper, L., Braga, M.D.V., Doerr, D., Stoye, J. (2020).
