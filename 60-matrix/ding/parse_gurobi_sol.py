@@ -1,4 +1,4 @@
-#!~/miniconda3/envs/dcj/bin/python
+#!/home/lucas/miniconda3/envs/dcj/bin/python
 
 import xml.etree.ElementTree as ET
 from ilp_util import *
