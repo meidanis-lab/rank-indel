@@ -36,7 +36,7 @@ for keys in itertools.product(*params):
     for j in range(niters):
         print(f'Iteration {j+1}')
         try:
-            cmd = f'make {dist}_tree NGENES={g} NCHRS={x} INSERTION_RATE={i} DELETION_RATE={e} INDEL_SIZE={z} -B'
+            cmd = f'make -B {dist} NGENES={g} NCHRS={x} INSRATE={i} DELRATE={e} INDEL_SIZE={z}'
             print(cmd)
             subprocess.check_output(cmd, shell=True)
             shutil.move(f'{dist}/{dist}_tree.nwk', f'{dist}/{dist}_tree_{conf}_iter{j+1}.nwk')
