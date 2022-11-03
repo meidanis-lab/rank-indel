@@ -1,4 +1,5 @@
-#!/usr/bin/env python2
+#!~/miniconda3/envs/dcj/bin/python
+
 import xml.etree.ElementTree as ET
 from ilp_util import *
 from argparse import ArgumentParser
