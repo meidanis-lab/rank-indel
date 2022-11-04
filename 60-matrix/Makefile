@@ -17,20 +17,16 @@ rank rankc rankindl:
 		ls rank/samples/$${i}/* | xargs ./gen_pairwise_comparisons.py | parallel --colsep '\t' $< {} | tr '\t' ',' | ./build_distance_matrix.py - > $@_matrix_$${i}.mat; \
 	done
 
-dcj: ${DATA}
-	for i in `seq 1 ${NSAMPLES}`; do \
-	    ls $</$${i}/* | xargs ./gen_pairwise_comparisons.py | parallel --colsep '\t' ding/dcjindel.sh {} | tr '\t' ',' | ./build_distance_matrix.py - > $@_matrix_$${i}.mat; \
-	done
-
-## TODO: Fix egrep and organisms names; these are causing trouble when converting the matrix.
-
-#dcj_matrix: unimog/samples
+#dcj: ${DATA}
 #	for i in `seq 1 ${NSAMPLES}`; do \
-#	    java -jar ${UNIMOG} -m=6 -d $</$${i}/genomes.unimog | egrep -e "^L[0-9]{2}" -e "^[0-9]{2}" | unimog/triangular2square.awk > dcj_matrix_$${i}.mat; \
+#	    ls $</$${i}/* | xargs ./gen_pairwise_comparisons.py | parallel --colsep '\t' ding/dcjindel.sh {} | tr '\t' ',' | ./build_distance_matrix.py - > $@_matrix_$${i}.mat; \
 #	done
 
-#unimog/samples:
-#	cd unimog && $(MAKE)
+dcj:
+	cd unimog && $(MAKE)
+	for i in `seq 1 ${NSAMPLES}`; do \
+	    java -jar ${UNIMOG} -m=6 -d unimog/samples/$${i}/genomes.unimog | egrep -e "^[0-9]{2}" -e "^[A-Z]{2}_" | unimog/triangular2square.awk > $@_matrix_$${i}.mat; \
+#	done
 
 clean:
 	rm -f *.unimog *.log *.mat
