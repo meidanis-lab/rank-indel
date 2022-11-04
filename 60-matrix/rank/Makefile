@@ -11,6 +11,7 @@ convert: ${DATA}
 		mkdir -p ${OUTPUT}/$${i}; \
 		for gen in `ls ${DATA}/$${i} | cut -d. -f1`; do \
 			./gen2txt.sh ${DATA}/$${i}/$${gen}.gen > ${OUTPUT}/$${i}/$${gen}.txt; \
+			./fmt_phylip.py ${OUTPUT}/$${i}/$${gen}.txt | xargs -I {} mv ${OUTPUT}/$${i}/$${gen}.txt ${OUTPUT}/$${i}/{}.txt; \
 		done \
 	done
 
