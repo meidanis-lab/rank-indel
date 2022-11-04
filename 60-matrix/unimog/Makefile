@@ -9,7 +9,7 @@ convert: ${DATA}
 	mkdir -p ${OUTPUT}
 	for i in `seq 1 ${NSAMPLES}`; do \
 		mkdir -p ${OUTPUT}/$${i}; \
-		ls ${DATA}/$${i}/* | parallel ./gen2unimog.sh {} > ${OUTPUT}/$${i}/genomes.unimog; \
+		ls ${DATA}/$${i}/* | parallel ./gen2unimog.py {} > ${OUTPUT}/$${i}/genomes.unimog; \
 	done
 
 clean:
