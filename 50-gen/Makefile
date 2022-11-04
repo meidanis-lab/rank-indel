@@ -7,7 +7,7 @@ NSAMPLES := $(shell ls ${DATA} | wc -l)
 conversion: ${DATA}
 		mkdir -p ${OUTPUT}
 		for i in `seq 1 ${NSAMPLES}`; do \
-				mkdir ${OUTPUT}/$${i}; \
+				mkdir -p ${OUTPUT}/$${i}; \
 				ls $</$${i} | cut -d. -f1 | xargs -I {} ./parse_genomes.py -i $</$${i}/{}.genome -o ${OUTPUT}/$${i}/{}.gen --circular; \
 		done
 
