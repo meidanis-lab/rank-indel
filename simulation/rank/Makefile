@@ -15,7 +15,7 @@ ROOTED_TREE := ../../70-tree/rooted-nj-tree-with-outgroup.R
 .PHONY: split_unimog unimog2pairs unimog2adj clean
 
 %_tree: %_matrix.mat
-	${ROOTED_TREE} $< $@ ${OUTGRP}
+	${ROOTED_TREE} $< $@ ${OUTGRP} csv
 
 rank_matrix.mat: ${RANK} unimog2adj
 rankc_matrix.mat: ${RANKC} unimog2adj

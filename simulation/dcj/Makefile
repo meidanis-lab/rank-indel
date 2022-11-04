@@ -7,11 +7,12 @@ TIME := "timing.txt"
 # auxiliary scripts
 UNIMOG := ../../60-matrix/unimog/UniMoG-java11.jar
 BUILD_MATRIX := ../../60-matrix/build_distance_matrix.py
+ROOTED_TREE := ../../70-tree/rooted-nj-tree-with-outgroup.R
 
 .PHONY: clean
 
 %_tree: %_matrix.mat
-	./rooted-nj-tree-with-outgroup.R $< $@ ${OUTGROUP}
+	${ROOTED_TREE} $< $@ ${OUTGROUP} phylip
 
 #dcj_matrix.mat: unimog2pairs
 #	ls *_vs_*.unimog | \time -a -f "%e" -o ${TIME} parallel ./dcjindel.sh {} | tr '\t' ',' | ${BUILD_MATRIX} - > $@
