@@ -26,13 +26,9 @@ query_%: $(CONFIG)/%.csv
 
 70-tree: 60-matrix
 	cd $@ && $(MAKE) ${DIST}_nj_rooted_tree OUTGRP=${OUTGRP}
-	# TODO: add later because now it depends on Gurobi and Python 2
-	# cd $@ && $(MAKE) dcj_nj_rooted_tree OUTGRP=${OUTGRP}
 
 60-matrix: 50-gen
 	cd $@ && $(MAKE) ${DIST}
-	# TODO: add later because now it depends on Gurobi and Python 2
-	# cd $@ && $(MAKE) dcj_matrix
 
 50-gen: 45-jackknife
 	cd $@ && $(MAKE)
