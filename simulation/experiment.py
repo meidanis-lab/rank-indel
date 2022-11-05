@@ -6,10 +6,10 @@ import subprocess
 import shutil
 
 if len(sys.argv) != 4:
-    raise SystemExit('usage: ./experiment.py [distance model: rank | rankindl | dcj] [parameters file] [number of iterations]')
+    raise SystemExit('usage: ./experiment.py [distance model: rank | rankc | rankindl | dcj] [parameters file] [number of iterations]')
 
-if sys.argv[1] not in {'rank', 'rankindl', 'dcj'}:
-    raise SystemExit('Invalid distance model: must be either \'dcj\', \'rank\', or \'rankindl\'')
+if sys.argv[1] not in {'rank', 'rankindl', 'rankc', 'dcj'}:
+    raise SystemExit('Invalid distance model: must be either \'dcj\', \'rank\', \'rankc\', or \'rankindl\'')
 
 with open(sys.argv[2], 'r') as fin:
     params = []
@@ -25,6 +25,10 @@ with open(sys.argv[2], 'r') as fin:
 
 niters = int(sys.argv[3])
 dist = sys.argv[1]
+dist_dir = dist
+
+if dist.startswith("rank"):
+    dist_dir = "rank"
 
 for keys in itertools.product(*params):
     conf = ''.join(keys)
@@ -39,6 +43,6 @@ for keys in itertools.product(*params):
             cmd = f'make -B {dist} NGENES={g} NCHRS={x} INSRATE={i} DELRATE={e} INDEL_SIZE={z}'
             print(cmd)
             subprocess.check_output(cmd, shell=True)
-            shutil.move(f'{dist}/{dist}_tree.nwk', f'{dist}/{dist}_tree_{conf}_iter{j+1}.nwk')
+            shutil.move(f'{dist_dir}/{dist}_tree.nwk', f'{dist_dir}/{dist}_tree_{conf}_iter{j+1}.nwk')
         except subprocess.CalledProcessError as e:
             print(e.output, e.returncode)
