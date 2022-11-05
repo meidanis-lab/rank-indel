@@ -24,4 +24,4 @@ dcj_matrix.mat: ../dummy_data.unimog
 	\time -a -f "%e" -o ${TIME} java -jar ${UNIMOG} -m=6 -d $< | egrep -e "^L[0-9]{2}" -e "^[0-9]{2}" | ./triangular2square.awk > $@
 
 clean:
-	rm -f *.nwk *.unimog *.lp *.sol *.ids *.log *.csv *.mat
+	rm -f *.txt *.nwk *.unimog *.lp *.sol *.ids *.log *.csv *.mat
