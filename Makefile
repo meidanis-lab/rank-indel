@@ -18,23 +18,23 @@ usage:
 	@echo "\tR,\tfloat between 0.0 and 1.0 for jackknife rate (default: R=0)"
 
 query_%: $(CONFIG)/%.csv
-	cd 00-gff && $(MAKE) $@
+	$(MAKE) -C 00-gff $@
 
 %: $(CONFIG)/%.csv
-	cd 00-gff && $(MAKE) download_$@
+	$(MAKE) -C 00-gff download_$@
 	$(MAKE) 70-tree
 
 70-tree: 60-matrix
-	cd $@ && $(MAKE) ${DIST}_nj_rooted_tree OUTGRP=${OUTGRP}
+	$(MAKE) -C $@ ${DIST}_nj_rooted_tree OUTGRP=${OUTGRP}
 
 60-matrix: 50-gen
-	cd $@ && $(MAKE) ${DIST}
+	$(MAKE) -C $@ ${DIST}
 
 50-gen: 45-jackknife
-	cd $@ && $(MAKE)
+	$(MAKE) -C $@
 
 45-jackknife: 40-genome
-	cd $@ && $(MAKE) N=${N} R=${R}
+	$(MAKE) -C $@ N=${N} R=${R}
 
 40-genome: 36-pcla-norep
 	cd $@ && ls ../$< | grep '\.norep' | awk -F- '{OFS="."; print $$1,"genome"}' | xargs $(MAKE)
