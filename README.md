@@ -13,8 +13,11 @@ conda install -c conda-forge r-codetools
 conda install -c conda-forge jupyterlab
 conda install -c bioconda r-phangorn
 conda install -c bioconda ncbi-genome-download
+conda install -c bioconda bioconductor-ggtree
 conda install -c r r-irkernel
 ```
+Also install the `Quartet` package by typing `install.packages('Quartet')` from within R.
+(Note that the `quartet` package available in Conda is not the same.)
 
 ## Generating the results
 To generate the results for the Rank distances, run the following:
