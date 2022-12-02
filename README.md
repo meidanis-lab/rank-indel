@@ -1,7 +1,8 @@
 ## Dependencies
-Step `20-wp` requires the following file:
+Step `20-wp` requires the `PCLA_proteins.txt.gz` file, which contains the protein clusters.
+Download this file as follows:
 ```bash
-wget http://www.ic.unicamp.br/~meidanis/PUB/Mestrado/2020-Oliveira/PCLA_proteins.txt.gz
+wget http://www.ic.unicamp.br/~meidanis/PUB/Mestrado/2020-Oliveira/PCLA_proteins.txt.gz && mv PCLA_proteins.txt.gz 20-wp
 ```
 
 ## Generating the results
