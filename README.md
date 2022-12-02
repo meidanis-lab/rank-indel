@@ -7,10 +7,12 @@ wget --no-check-certificate http://www.ic.unicamp.br/~meidanis/PUB/Mestrado/2020
 We provide a specification file `spec-file-linux-64` to replicate our environment.
 Nevertheless, these are the required packages to run the pipeline:
 ```bash
-conda install -c bioconda ncbi-genome-download
 conda install -c conda-forge r-base
 conda install -c conda-forge r-ape
+conda install -c conda-forge r-codetools
+conda install -c conda-forge jupyterlab
 conda install -c bioconda r-phangorn
+conda install -c bioconda ncbi-genome-download
 ```
 
 ## Generating the results
