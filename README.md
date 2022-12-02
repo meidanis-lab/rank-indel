@@ -1,8 +1,16 @@
 ## Dependencies
 Step `20-wp` requires the `PCLA_proteins.txt.gz` file, which contains the protein clusters.
-Download this file as follows:
+The pipeline will download this file automatically as follows:
 ```bash
-wget http://www.ic.unicamp.br/~meidanis/PUB/Mestrado/2020-Oliveira/PCLA_proteins.txt.gz && mv PCLA_proteins.txt.gz 20-wp
+wget --no-check-certificate http://www.ic.unicamp.br/~meidanis/PUB/Mestrado/2020-Oliveira/PCLA_proteins.txt.gz && mv PCLA_proteins.txt.gz 20-wp
+```
+We provide a specification file `spec-file-linux-64` to replicate our environment.
+Nevertheless, these are the required packages to run the pipeline:
+```bash
+conda install -c bioconda ncbi-genome-download
+conda install -c conda-forge r-base
+conda install -c conda-forge r-ape
+conda install -c bioconda r-phangorn
 ```
 
 ## Generating the results
