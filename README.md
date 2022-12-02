@@ -13,6 +13,7 @@ conda install -c conda-forge r-codetools
 conda install -c conda-forge jupyterlab
 conda install -c bioconda r-phangorn
 conda install -c bioconda ncbi-genome-download
+conda install -c r r-irkernel
 ```
 
 ## Generating the results
