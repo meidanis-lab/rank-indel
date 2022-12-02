@@ -1,4 +1,10 @@
-## Quick start
+## Dependencies
+Step `20-wp` requires the following file:
+```bash
+wget http://www.ic.unicamp.br/~meidanis/PUB/Mestrado/2020-Oliveira/PCLA_proteins.txt.gz
+```
+
+## Generating the results
 To generate the results for the Rank distances, run the following:
 ```bash
 conda create --name rank --file spec-file-linux-64      # create conda env from spec file
