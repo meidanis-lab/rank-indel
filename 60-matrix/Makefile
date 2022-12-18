@@ -20,7 +20,7 @@ rank rankc rankindl:
 dcj:
 	cd unimog && $(MAKE)
 	for i in `seq 1 ${NSAMPLES}`; do \
-	    java -jar ${UNIMOG} -m=6 -d unimog/samples/$${i}/genomes.unimog | egrep -e "^[0-9]" -e "^[A-Z]{2}_" | unimog/triangular2square.awk > $@_matrix_$${i}.mat; \
+	    java -jar ${UNIMOG} -m=6 -d unimog/samples/$${i}/genomes.unimog | egrep -e "^[0-9][0-9]*" -e "^[A-Z]{2}_" | unimog/triangular2square.awk > $@_matrix_$${i}.mat; \
 	done
 
 clean:
