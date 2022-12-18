@@ -17,11 +17,6 @@ rank rankc rankindl:
 		ls rank/samples/$${i}/* | xargs ./gen_pairwise_comparisons.py | parallel --colsep '\t' $< {} | tr '\t' ',' | ./build_distance_matrix.py - > $@_matrix_$${i}.mat; \
 	done
 
-#dcj: ${DATA}
-#	for i in `seq 1 ${NSAMPLES}`; do \
-#	    ls $</$${i}/* | xargs ./gen_pairwise_comparisons.py | parallel --colsep '\t' ding/dcjindel.sh {} | tr '\t' ',' | ./build_distance_matrix.py - > $@_matrix_$${i}.mat; \
-#	done
-
 dcj:
 	cd unimog && $(MAKE)
 	for i in `seq 1 ${NSAMPLES}`; do \
