@@ -12,7 +12,7 @@ usage:
 	@echo "Usage: make [esche_shige | test]"
 	@echo "Required variables:"
 	@echo "\tDIST,\tdistance model, one of [rank | rankc | rankindl | dcj] (default: DIST=rank)"
-	@echo "\tOUTGRP,\tannotation of outgroup organism] (see CSV in config folder, e.g. OUTGRP=A_salm_VS224)"
+	@echo "\tOUTGRP,\tannotation of outgroup organism] (see CSV in config folder, e.g. OUTGRP=AS_VS224)"
 	@echo "Optional variables:"
 	@echo "\tN,\tnumber of samples for jeckknife (default: N=1)"
 	@echo "\tR,\tfloat between 0.0 and 1.0 for jackknife rate (default: R=0)"
