@@ -24,7 +24,7 @@ To generate the results for a rearrangement distance, run the following:
 ```bash
 conda create --name my_env --file spec-file-linux-64      # create conda env from spec file
 conda activate my_env                                     # activate env
-make esche_shige DIST=${DIST} OUTGRP=EF_ATCC35          # run pipeline for rank distances
+make esche_shige DIST=${DIST} OUTGRP=EF_ATCC35            # run pipeline for rank distances
 ```
 Here, ${DIST} is either `rank`, `rankindl`, `rankc`, or `dcj`.
 For the rank distance, we recommend using `rankc`, which is more efficient than the other two.
@@ -35,9 +35,9 @@ The code to generate the figures and comparison metrics is available in the jupy
 Running `make` will display a helper message on options for the parameters.
 A required dependency for the proper execution of the pipeline is the content in the `config` folder:
 - `test.csv`: metadata of 4 *Vibrio* strains used for testing purposes;
- - `OUTGRP=AS\_VS224`
+    - `OUTGRP=AS\_VS224`
 - `esche_shige.csv`: metadata of *Shigela* and *E. coli* genomes, e.g. accession number, annotation, etc;
- - `OUTGRP=EF_ATCC35`
+    - `OUTGRP=EF_ATCC35`
 - `esche_shige_short.tree`: reference phylogenetic tree.
 
 ## Pipeline for simulated data
