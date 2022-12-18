@@ -26,7 +26,7 @@ conda create --name my_env --file spec-file-linux-64      # create conda env fro
 conda activate my_env                                     # activate env
 make esche_shige DIST=${DIST} OUTGRP=EF_ATCC35            # run pipeline for rank distances
 ```
-Here, ${DIST} is either `rank`, `rankindl`, `rankc`, or `dcj`.
+Here, `${DIST}` is either `rank`, `rankindl`, `rankc`, or `dcj`.
 For the rank distance, we recommend using `rankc`, which is more efficient than the other two.
 The outputs are the Newick files containing the phylogenetic trees in `70-tree`.
 The code to generate the figures and comparison metrics is available in the jupyter notebook `70-tree/analysis.ipynb`.
