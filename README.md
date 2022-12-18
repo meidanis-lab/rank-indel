@@ -35,7 +35,7 @@ The code to generate the figures and comparison metrics is available in the jupy
 Running `make` will display a helper message on options for the parameters.
 A required dependency for the proper execution of the pipeline is the content in the `config` folder:
 - `test.csv`: metadata of 4 *Vibrio* strains used for testing purposes;
-    - `OUTGRP=AS\_VS224`
+    - `OUTGRP=AS_VS224`
 - `esche_shige.csv`: metadata of *Shigela* and *E. coli* genomes, e.g. accession number, annotation, etc;
     - `OUTGRP=EF_ATCC35`
 - `esche_shige_short.tree`: reference phylogenetic tree.
