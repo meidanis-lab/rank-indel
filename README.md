@@ -19,7 +19,7 @@ conda install -c r r-irkernel
 In addition, install the `Quartet` package by typing `install.packages('Quartet')` from within R.
 (Note that the `quartet` package available in Conda is *not* the same.)
 
-## Generating the results
+## Generating the results for *Shigella* and *E. coli* genomes
 To generate the results for a rearrangement distance, run the following:
 ```bash
 conda create --name my_env --file spec-file-linux-64      # create conda env from spec file
@@ -31,8 +31,7 @@ For the rank distance, we recommend using `rankc`, which is more efficient than 
 The outputs are the Newick files containing the phylogenetic trees in `70-tree`.
 The code to generate the figures and comparison metrics is available in the jupyter notebook `70-tree/analysis.ipynb`.
 
-## Pipeline for *Shigella* and *E. coli* species
-Running `make` will display a helper message on options for the parameters.
+Running just `make` will display a helper message on options for the parameters.
 A required dependency for the proper execution of the pipeline is the content in the `config` folder:
 - `test.csv`: metadata of 4 *Vibrio* strains used for testing purposes;
     - `OUTGRP=AS_VS224`
@@ -40,5 +39,5 @@ A required dependency for the proper execution of the pipeline is the content in
     - `OUTGRP=EF_ATCC35`
 - `esche_shige_short.tree`: reference phylogenetic tree.
 
-## Pipeline for simulated data
+## Generating the results for simulated data
 See the folder `simulation`.
