@@ -29,7 +29,7 @@ We ran the following command to measure the running time of our programs:
 for i in `seq 5000 5000 50000`; do make -B ${DIST} NGENES=${i} TIME=${DIST}_timing.txt; done
 ```
 where `${DIST}` is either `rank`, `rankindl`, `rankc`, or `dcj`.
-The `${DIST}_timing.txt` file can be loaded in the `analysis.ipynb` notebook in order to generate a dot splot.
+The `${DIST}_timing.txt` file can be loaded in the `analysis.ipynb` notebook in order to generate a dot plot.
 
 ## Experiment with *indel* rate
 The script `experiment_indel_rate` contains the steps for an experiment that varies the insertion (`-i`) and deletion (`-d`) rates of the simulator.
