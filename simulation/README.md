@@ -29,6 +29,13 @@ We ran the following command to measure the running time of our programs:
 for i in `seq 5000 5000 50000`; do make -B ${DIST} NGENES=${i} TIME=${DIST}_timing.txt; done
 ```
 where `${DIST}` is either `rank`, `rankindl`, `rankc`, or `dcj`.
+The `${DIST}_timing.txt` file can be loaded in the `analysis.ipynb` notebook in order to generate a dot splot.
+
+## Experiment with *indel* rate
+The script `experiment_indel_rate` contains the steps for an experiment that varies the insertion (`-i`) and deletion (`-d`) rates of the simulator.
+The other parameters are fixed.
+Upon completion, the script will have generated 100 trees, 10 for each value of *indel* rate (`-i` and `-d`) from 0.0 to 0.9, in steps of 0.1.
+These results can be loaded in the `analysis.ipynb` notebook in order to generate box plots.
 
 ## References
 The programs `simulate_dcj.py` and `trees.py` were taken from https://gitlab.ub.uni-bielefeld.de/gi/ding and described by Bohnenkämper, L., Braga, M.D.V., Doerr, D., Stoye, J. (2020).
