@@ -20,7 +20,7 @@ The parameters are the following:
 - `-e`: deletion rate;
 - `-l`: output the leaves only;
 
-## Performance measurement
+## Experiment to mesure performance
 When running the Makefile for a particular distance model, we use the program `time` to measure the running time of the program that computes the distance.
 By default, this measurement will be recorded in the `timing.txt` file, but one can change this behavior by specifying, for instance, `TIME=another_timing.txt` when running the Makefile.
 
