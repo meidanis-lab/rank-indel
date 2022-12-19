@@ -2,7 +2,7 @@
 
 if [[ -z $1 ]]
 then
-    echo "usage: $0 [rank | dcj]"
+    echo "usage: $0 [rank | rankindl | rankc | dcj]"
     exit 0
 elif [[ $1 == "dcj" ]]
 then
