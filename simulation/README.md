@@ -3,8 +3,10 @@ Each `make` below generates a phylogenetic tree in Newick format using the dista
 ```bash
 make rank
 make rankindl
+make rankc
 make dcj
 ```
+For the rank distance, we recommend `rankc`, which is more efficient than the other two.
 
 ## Parameters of the simulator
 The simulator is run with the following parameters by default, but they can be adjusted by the user.
@@ -26,7 +28,7 @@ We ran the following command to measure the running time of our programs:
 ```bash
 for i in `seq 5000 5000 50000`; do make -B ${DIST} NGENES=${i} TIME=${DIST}_timing.txt; done
 ```
-where `DIST` is either `rank`, `rankindl`, `rankc`, or `dcj`.
+where `${DIST}` is either `rank`, `rankindl`, `rankc`, or `dcj`.
 
 ## References
 The programs `simulate_dcj.py` and `trees.py` were taken from https://gitlab.ub.uni-bielefeld.de/gi/ding and described by Bohnenkämper, L., Braga, M.D.V., Doerr, D., Stoye, J. (2020).
