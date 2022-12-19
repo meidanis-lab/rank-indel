@@ -1,6 +1,10 @@
 #!/usr/bin/bash
 
-if [[ $1 == "dcj" ]]
+if [[ -z $1 ]]
+then
+    echo "usage: $0 [rank | dcj]"
+    exit 0
+elif [[ $1 == "dcj" ]]
 then
     DIST="dcj"
 elif [[ $(expr substr $1 1 4) == "rank" ]]
